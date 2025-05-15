@@ -10,6 +10,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/musica")
@@ -18,6 +19,17 @@ public class MusicaController {
     @GetMapping
     public List<Musica> listarMusica() {
         return musicaRepository.findAll();
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<Musica> buscarMusicaPeloID (@PathVariable Long id) {
+
+        Optional<Musica> musicaOpt = musicaRepository.findById(id);
+
+        if (musicaOpt.isPresent()) {
+            return ResponseEntity.ok(musicaOpt.get());
+        }
+        return ResponseEntity.notFound().build();
     }
 
     @PostMapping
