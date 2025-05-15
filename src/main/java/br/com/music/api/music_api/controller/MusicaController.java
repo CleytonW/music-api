@@ -28,11 +28,6 @@ public class MusicaController {
         return ResponseEntity.created(uri).body(musicaSalva);
     }
 
-    @DeleteMapping("/{id}")
-    public void deletarMusica(@PathVariable Long id) {
-        musicaRepository.deleteById(id);
-    }
-
 
     @Autowired
     MusicaRepository musicaRepository;
