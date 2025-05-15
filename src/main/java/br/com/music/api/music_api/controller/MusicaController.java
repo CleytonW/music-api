@@ -3,6 +3,7 @@ package br.com.music.api.music_api.controller;
 import br.com.music.api.music_api.model.Musica;
 import br.com.music.api.music_api.repository.MusicaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -29,6 +30,7 @@ public class MusicaController {
     }
 
     @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletarMusica(@PathVariable Long id) {
         musicaRepository.deleteById(id);
     }
