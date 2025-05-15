@@ -1,6 +1,7 @@
 package br.com.music.api.music_api.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -19,6 +20,7 @@ public class Musica {
     private String artista;
 
     @JsonFormat(pattern = "dd/MM/yyyy")
+    @JsonProperty("data_lancamento")
     @Column(name = "data_lancamento")
     private LocalDate dataLancamento;
 
