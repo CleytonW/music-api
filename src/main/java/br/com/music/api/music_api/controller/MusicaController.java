@@ -2,6 +2,7 @@ package br.com.music.api.music_api.controller;
 
 import br.com.music.api.music_api.model.Musica;
 import br.com.music.api.music_api.repository.MusicaRepository;
+import br.com.music.api.music_api.service.MusicaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -41,11 +42,20 @@ public class MusicaController {
         return ResponseEntity.created(uri).body(musicaSalva);
     }
 
+    @PutMapping("{id}/atualizar")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void atualizarDuracaoMusica(@PathVariable Long id, @RequestBody String duracao) {
+        musicaService.atualizarDuracaoMusica(id, duracao);
+    }
+
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void deletarMusica(@PathVariable Long id) {
         musicaRepository.deleteById(id);
     }
+
+    @Autowired
+    MusicaService musicaService;
 
     @Autowired
     MusicaRepository musicaRepository;
