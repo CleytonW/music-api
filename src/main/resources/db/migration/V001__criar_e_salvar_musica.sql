@@ -1,4 +1,4 @@
-CREATE TABLE music (
+CREATE TABLE musica (
 
     id BIGINT(10) NOT NULL PRIMARY KEY AUTO_INCREMENT,
     nome VARCHAR(20) NOT NULL,
@@ -8,4 +8,6 @@ CREATE TABLE music (
 
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-INSERT INTO music (nome, artista, data_lancamento, duracao) VALUES ('SOMEWHERE I BELONG', 'LINKIN PARK', '2003-02-28', '03:33 ')
+INSERT INTO musica (nome, artista, data_lancamento, duracao) VALUES ('SOMEWHERE I BELONG', 'LINKIN PARK', '2003-02-28', '03:33 ');
+
+insert into musica (nome, artista, data_lancamento, duracao) values ('NUMBE', 'LINKIN PARK', '2003-09-02', '03:06');
